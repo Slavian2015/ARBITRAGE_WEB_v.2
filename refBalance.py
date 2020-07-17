@@ -159,11 +159,18 @@ def NewBalance():
         wallet_ls = []
         for k, v in dictionary.items():
             if 'payment/balances' in f'**{k}**':
-                wallet_ls.append('Ok')
-                Live = dictionary[k]
-                for i in Live:
-                    if i['type'] == "available" and i['value'] > 0:
-                        wallet_l.update({i['currency']: i['value']})
+                # print(v)
+                # print(v['success'])
+                if 'success' in v and v['success']:
+                    if v['success'] == False:
+                        wallet_ls.append(' - - Error - -')
+                        break
+                else:
+                    wallet_ls.append('Ok')
+                    Live = dictionary[k]
+                    for i in Live:
+                        if i['type'] == "available" and i['value'] > 0:
+                            wallet_l.update({i['currency']: i['value']})
             else:
                 pass
         if not wallet_ls:

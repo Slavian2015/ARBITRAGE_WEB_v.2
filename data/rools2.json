@@ -1,0 +1,6 @@
+{"live": {"price_precision":{"BTC/USD": 0.00001, "PZM/USD": 0.00001, "PZM/USDT": 0.00000001, "ETH/USD": 0.00001, "PZM/BTC": 0.00000001},
+			"amount_precision":{"BTC/USD": 0.00001, "PZM/USD": 0.00001, "PZM/USDT": 0.00000001, "ETH/USD": 0.00001, "PZM/BTC": 0.00000001}},
+  "alfa": {"price_precision":{"BTC/USD": 0.001, "PZM/USD": 0.0001, "ETH/USD": 0.01, "ETH/USDT": 0.01,"PZM/BTC": 0.00000001},
+			"amount_precision":{"BTC/USD": 0.000001, "PZM/USD": 0.00000001, "ETH/USD": 0.00000001, "ETH/USDT": 0.00001,"PZM/BTC": 0.00000001}},
+  "hot": {"price_precision":{"BTC/USD": 0.01, "PZM/USD": 0.00000001, "PZM/USDT": 0.000001, "ETH/USDT": 0.01, "ETH/USD": 0.01, "PZM/BTC": 0.00000001},
+			"amount_precision":{"BTC/USD": 0.000001, "PZM/USD": 0.01, "PZM/USDT": 0.01, "ETH/USDT": 0.00001, "ETH/USD": 0.000001, "PZM/BTC": 0.01}}}

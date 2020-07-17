@@ -1182,6 +1182,458 @@ def serve_layout2():
 
     return layout
 
+def serve_layout3():
+    interval = dcc.Interval(id='interval3', interval=1000, n_intervals=0)
+    vilki2 = pd.read_csv(main_path_data + "\\vilki3.csv")
+    vilki_all = pd.read_csv(main_path_data + "\\vilki2_all.csv")
+
+    layout = [interval,
+              dbc.Row(style={'padding':'0','margin':'0'},
+                      children=[
+                  dbc.Col(
+                        style={'height': '93vh',
+                               'max-height': '93vh',
+                               'text-align': 'center',
+                               'padding':'0',
+                               'margin':'0',
+                               'width':'60%',
+                               'overflowY': "hidden"},
+                        children=[
+
+                            dbc.Row(style={'min-height': '40vh', 'max-height': '40vh',
+                               'padding':'0',
+                               'margin':'0',
+                                           'overflowY': 'scroll'},
+                                    children=[
+                                        ddk.Card(style={
+                                           'padding':'0',
+                                           'margin':'0',
+                                           'overflowY': 'hidden'},
+                                            children=[
+                                            dash_table.DataTable(
+                                                id="vilki3_table",
+                                                data=vilki2.to_dict('records'),
+                                                columns=[{'id': c, 'name': c} for c in vilki2.columns],
+                                                sort_action='native',
+                                                style_cell_conditional=[
+                                                    # {
+                                                    #     'if': {'column_id': 'regim'},
+                                                    #     'font-size': '11px',
+                                                    #     'fontWeight': 'bold'
+                                                    # },
+                                                    # {
+                                                    #     'if': {'column_id': 'timed'},
+                                                    #     'font-size': '11px',
+                                                    #     'max-width': 'fit-content',
+                                                    # },
+                                                    # {
+                                                    #     'if': {'column_id': 'b1'},
+                                                    #     'font-size': '11px',
+                                                    #     'max-width': 'fit-content',
+                                                    #     'padding':'0',
+                                                    # },
+                                                    # {
+                                                    #     'if': {'column_id': 'b2'},
+                                                    #     'font-size': '11px',
+                                                    #     'max-width': 'fit-content',
+                                                    #     'padding': '0',
+                                                    # },
+                                                    # {
+                                                    #     'if': {'column_id': 'val1'},
+                                                    #     'font-size': '11px',
+                                                    #     'max-width': 'fit-content',
+                                                    #     'padding': '0',
+                                                    # },
+                                                    # {
+                                                    #     'if': {'column_id': 'val2'},
+                                                    #     'font-size': '11px',
+                                                    #     'max-width': 'fit-content',
+                                                    #     'padding': '0',
+                                                    # },
+                                                    # {
+                                                    #     'if': {'column_id': 'val3'},
+                                                    #     'font-size': '11px',
+                                                    #     'max-width': 'fit-content',
+                                                    #     'padding': '0',
+                                                    # },
+                                                    # {
+                                                    #     'if': {'column_id': 'kurs1'},
+                                                    #     'font-size': '12px',
+                                                    #     'fontWeight': 'bold'
+                                                    # },
+                                                    # {
+                                                    #     'if': {'column_id': 'kurs2'},
+                                                    #     'font-size': '12px',
+                                                    #     'fontWeight': 'bold'
+                                                    # },
+                                                    # {
+                                                    #     'if': {'column_id': 'profit'},
+                                                    #     'font-size': '12px',
+                                                    #     'fontWeight': 'bold'
+                                                    # },
+                                                    #
+
+                                                    {
+                                                        'if': {'column_id': c},
+                                                        'display': 'none'
+                                                    } for c in
+                                                    ['direction_x','volume_x','Com_x','valin_y','direction_y','volume_y','Com_y','Bal1','Bal2','volume','profit','min_A','new_kurs','prof','per'
+]
+                                                ],
+                                                style_data_conditional=[
+                                                    {
+                                                        'if': {'row_index': 'odd'},
+                                                        'backgroundColor': 'rgb(248, 248, 248)'
+                                                    },
+                                                ],
+                                                style_table={
+                                                    'maxHeight': '100%',
+                                                    'overflowY': 'scroll',
+                                                    'width': '100%',
+                                                    'minWidth': '100%',
+                                                },
+                                                style_cell={
+                                                    'fontSize': '10px',
+                                                    'fontFamily': 'Open Sans',
+                                                    'textAlign': 'center',
+                                                    'height': '30px',
+                                                    'maxHeight': '30px',
+                                                    'whiteSpace': 'inherit',
+                                                    'overflow': 'hidden',
+                                                    'textOverflow': 'ellipsis',
+                                                },
+
+                                                style_header={
+                                                    'fontSize': '10px',
+                                                    'backgroundColor': 'rgb(230, 230, 230)',
+                                                    'fontWeight': 'bold'
+                                                })
+                                        ])
+                                    ]),
+                            dbc.Row(style={
+                                # "width": "100%",
+                                           'max-height': '58vh',
+                                           'overflowY': 'scroll',
+                               'padding':'0',
+                               'margin':'0',
+                                           },
+                                    children=[
+
+                                        ddk.Card(
+                                            style={"width": "100%", 'min-height': '48vh', 'max-height': '48vh',
+                               'padding':'0',
+                               'margin':'0','margin-top':'10px',
+                                                   'overflowY': 'scroll'},
+                                            children=[dash_table.DataTable(
+                                                id="vilki3_all_table",
+                                                data=vilki_all.to_dict('records'),
+                                                columns=[{'id': c, 'name': c} for c in vilki_all.columns],
+                                                # page_action='native',
+                                                # filter_action='native',
+                                                # filter_query='',
+                                                # sort_action='native',
+                                                # sort_mode='multi',
+                                                # sort_by=[],
+                                                export_format='xlsx',
+                                                # export_headers='display',
+                                                # merge_duplicate_headers=True,
+                                                style_cell_conditional=[
+                                                    {
+                                                        'if': {'column_id': 'birga_x'},
+                                                        # 'font-size': '11px',
+                                                        'max-width': '30px',
+                                                        'padding': '0',
+                                                    },
+                                                    {
+                                                        'if': {'column_id': 'birga_y'},
+                                                        # 'font-size': '11px',
+                                                        'max-width': '30px',
+                                                        'padding': '0',
+                                                    },
+                                                    {
+                                                        'if': {'column_id': 'valin_x'},
+                                                        # 'font-size': '11px',
+                                                        'max-width': '30px',
+                                                        'padding': '0',
+                                                    },
+                                                    {
+                                                        'if': {'column_id': 'valin_y'},
+                                                        # 'font-size': '11px',
+                                                        'max-width': '30px',
+                                                        'padding': '0',
+                                                    },
+                                                    {
+                                                        'if': {'column_id': 'valout_x'},
+                                                        # 'font-size': '11px',
+                                                        'max-width': '30px',
+                                                        'padding': '0',
+                                                    },
+                                                    {
+                                                        'if': {'column_id': 'res_birga1'},
+                                                        # 'font-size': '11px',
+                                                        'max-width': '30px',
+                                                        'overflow': 'hidden',
+                                                        'padding': '0',
+                                                    },
+                                                    {
+                                                        'if': {'column_id': 'res_birga2'},
+                                                        # 'font-size': '11px',
+                                                        'max-width': '30px',
+                                                        'overflow': 'hidden',
+                                                        'padding': '0',
+                                                    },
+                                                    {
+                                                        'if': {'column_id': 'TIME'},
+                                                        # 'font-size': '11px',
+                                                        'max-width': 'fit-content',
+                                                        'textOverflow': 'ellipsis',
+                                                        'padding': '0',
+                                                    },
+                                                ],
+                                                style_data_conditional=[
+                                                    {
+                                                        'if': {'row_index': 'odd'},
+                                                        'backgroundColor': 'rgb(248, 248, 248)'
+                                                    }
+                                                ],
+                                                style_table={
+                                                    'maxHeight': '100%',
+                                                    'overflowY': 'scroll',
+                                                    'width': '100%',
+                                                    'minWidth': '100%',
+                                                },
+                                                style_cell={
+                                                    'fontSize': '10px',
+                                                    'fontFamily': 'Open Sans',
+                                                    'textAlign': 'center',
+                                                    'height': '30px',
+                                                    'maxHeight': '30px',
+                                                    # 'width': '30px',
+                                                    # 'maxWidth': '30px',
+                                                    'padding': '0',
+                                                    'whiteSpace': 'inherit',
+                                                    'overflow': 'hidden',
+                                                    # 'textOverflow': 'ellipsis',
+                                                    # 'pd.options.display.float_format': '{:.5f}'.format,
+                                                },
+                                                style_header={
+                                                    'fontSize': '10px',
+                                                    'backgroundColor': 'rgb(230, 230, 230)',
+                                                    'fontWeight': 'bold'
+                                                }
+                                            ),
+                                            ])
+                                        ]),
+                            ]),
+                  dbc.Col(
+                        style={'height': '93vh',
+                               'max-height': '93vh',
+                               'text-align': 'center',
+                               'padding':'0',
+                               'margin':'0',
+                               'max-width': '40%',
+                               'width':'40%',
+                       'overflowY': "hidden"},
+                        children=[
+                            dbc.Row(style={"width": "100%", 'min-height': '90vh', 'max-height': '90vh',
+                                           'overflowY': 'scroll'},
+                                    children=[
+                                        dbc.Row(html.Div(
+                                            # width=100,
+                                            style={'padding-left': '0px'},
+                                            children=[
+                                                dbc.Row(
+                                                    style={'margin': '0',
+                                                           'padding': '0'},
+                                                    children=[
+                                                        dbc.Row(
+                                                            style={'margin': '0',
+                                                                   'margin-left': '10px',
+                                                                   'padding': '0'},
+                                                            children=[
+                                                                dbc.Col(style={'width': '16%',
+                                                                               'margin': '0',
+                                                                               'padding': '0'},
+                                                                        children=[
+                                                                            dbc.Row(dcc.Dropdown(
+                                                                                id='newbirga1_btn_reg3',
+                                                                                style={'width': '100%',
+                                                                                       'background-color': '#fff'},
+                                                                                placeholder="БИРЖА 1",
+                                                                                options=[
+                                                                                    {
+                                                                                        'label': 'alfa',
+                                                                                        'value': 'alfa'},
+                                                                                    {
+                                                                                        'label': 'hot',
+                                                                                        'value': 'hot'},
+                                                                                    {
+                                                                                        'label': 'live',
+                                                                                        'value': 'live'},
+
+                                                                                ],
+                                                                                value='')),
+                                                                            dbc.Row(dcc.Input(
+                                                                                value='',
+                                                                                id='newbirga1_com_btn_reg3',
+                                                                                placeholder="Комисия",
+                                                                                style={
+                                                                                    'margin': '0',
+                                                                                    'text-align': 'left',
+                                                                                    'background-color': 'ivory',
+                                                                                    'width': '-webkit-fill-available',
+                                                                                }))]),
+                                                                dbc.Col(style={'width': '16%',
+                                                                               'margin': '0',
+                                                                               'padding': '0'},
+                                                                        children=[dbc.Row(dcc.Dropdown(
+                                                                            id='newbirga2_btn_reg3',
+                                                                            style={'width': '100%',
+                                                                                   'background-color': '#fff'},
+                                                                            placeholder="БИРЖА 2",
+                                                                            options=[
+                                                                                {
+                                                                                    'label': 'alfa',
+                                                                                    'value': 'alfa'},
+                                                                                {
+                                                                                    'label': 'hot',
+                                                                                    'value': 'hot'},
+                                                                                {
+                                                                                    'label': 'live',
+                                                                                    'value': 'live'},
+
+                                                                            ],
+                                                                            value='')),
+                                                                            dbc.Row(dcc.Input(
+                                                                                value='',
+                                                                                id='newbirga2_com_btn_reg3',
+                                                                                placeholder="Комисия",
+                                                                                style={
+                                                                                    'margin': '0',
+                                                                                    'text-align': 'left',
+                                                                                    'background-color': 'ivory',
+                                                                                    'width': '-webkit-fill-available',
+                                                                                }))]),
+                                                                dbc.Col(style={'width': '16%',
+                                                                               'margin': '0',
+                                                                               'padding': '0'},
+                                                                        children=[dbc.Row(dcc.Dropdown(
+                                                                            id='newval1_btn_reg3',
+                                                                            style={'width': '100%',
+                                                                                   'background-color': '#fff'},
+                                                                            options=[
+                                                                                {'label': 'BTC',
+                                                                                 'value': 'BTC'},
+                                                                                {'label': 'USD',
+                                                                                 'value': 'USD'},
+                                                                                {'label': 'USDT',
+                                                                                 'value': 'USDT'},
+                                                                                {'label': 'ETH',
+                                                                                 'value': 'ETH'},
+                                                                                {'label': 'PZM',
+                                                                                 'value': 'PZM'},
+
+                                                                            ],
+                                                                            value='', )),
+                                                                            dbc.Row(dcc.Input(
+                                                                                value='',
+                                                                                id='neworder_com_btn_reg3',
+                                                                                placeholder="Минималка",
+                                                                                style={
+                                                                                    'margin': '0',
+                                                                                    'text-align': 'left',
+                                                                                    'background-color': 'ivory',
+                                                                                    'width': '-webkit-fill-available',
+                                                                                }))]),
+                                                                dbc.Col(style={'width': '16%',
+                                                                               'margin': '0',
+                                                                               'padding': '0'},
+                                                                        children=[dbc.Row(dcc.Dropdown(
+                                                                            id='newval2_btn_reg3',
+                                                                            style={'width': '100%',
+                                                                                   'background-color': '#fff'},
+                                                                            options=[
+                                                                                {'label': 'BTC',
+                                                                                 'value': 'BTC'},
+                                                                                {'label': 'USD',
+                                                                                 'value': 'USD'},
+                                                                                {'label': 'USDT',
+                                                                                 'value': 'USDT'},
+                                                                                {'label': 'ETH',
+                                                                                 'value': 'ETH'},
+                                                                                {'label': 'PZM',
+                                                                                 'value': 'PZM'},
+
+                                                                            ],
+                                                                            value='')),
+                                                                            dbc.Row(dcc.Input(
+                                                                                value='',
+                                                                                id='newper_btn_reg3',
+                                                                                placeholder="% ордера",
+                                                                                style={
+                                                                                    'margin': '0',
+                                                                                    'text-align': 'left',
+                                                                                    'background-color': 'ivory',
+                                                                                    'width': '-webkit-fill-available',
+                                                                                }))]),
+                                                                dbc.Col(style={'width': '16%',
+                                                                               'margin': '0',
+                                                                               'padding': '0'},
+                                                                        children=[dbc.Row(dcc.Dropdown(
+                                                                            id='newval3_btn_reg3',
+                                                                            style={'width': '100%',
+                                                                                   'background-color': '#fff'},
+                                                                            options=[
+                                                                                {'label': 'BTC',
+                                                                                 'value': 'BTC'},
+                                                                                {'label': 'USD',
+                                                                                 'value': 'USD'},
+                                                                                {'label': 'USDT',
+                                                                                 'value': 'USDT'},
+                                                                                {'label': 'ETH',
+                                                                                 'value': 'ETH'},
+                                                                                {'label': 'PZM',
+                                                                                 'value': 'PZM'},
+
+                                                                            ],
+                                                                            value='')),
+                                                                            dbc.Row(dcc.Input(
+                                                                                value='',
+                                                                                id='newprofit_btn_reg3',
+                                                                                placeholder='% профита',
+                                                                                style={
+                                                                                    'margin': '0',
+                                                                                    'text-align': 'left',
+                                                                                    'background-color': 'ivory',
+                                                                                    'width': '-webkit-fill-available',
+                                                                                }))]),
+                                                                dbc.Col(style={'width': '25%',
+                                                                               'margin': '0',
+                                                                               'padding': '0'},
+                                                                        children=[html.Button('SAVE',
+                                                                                              id='Create_NewRegim_btn_reg3',
+                                                                                              n_clicks=0)]),
+
+                                                            ])
+                                                    ]
+                                                ),
+
+                                        dbc.Row(id="listcardreg3",
+                                                style={"width": "100%",
+                                                       # 'min-height': '50vh',
+                                                       # 'max-height': '45vh',
+                                                       # 'overflowY': 'scroll'
+                                                       },
+                                                children=[i for i in MAIN_TAB.regims3()])
+                                            ])),
+
+                                    ])])
+
+              ])
+              ]
+
+    return layout
+
 def ring(i):
     if i == 0:
         return html.Audio(src='data:audio/mpeg;base64,{}'.format(encoded_sound.decode('utf-8')),

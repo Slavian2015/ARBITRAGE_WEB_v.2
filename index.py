@@ -15,18 +15,12 @@ main_path_data = os.path.abspath("./data")
 sound_filename = (main_path_data + "\\signal.mp3")  # replace with your own .mp3 file
 encoded_sound = base64.b64encode(open(sound_filename, 'rb').read())
 
-# def sound(i):
-#
-#     sound = html.Div(id='sound', children=[i])
-#     return sound
-
 
 dash_app.layout = html.Div([
     dcc.Location(id='url', refresh=False),
     ddk.App(style={'background-color': 'transparent'},
                      children=[
                          ddk.Header(style={'height': '7vh',
-                                           # 'background-color': '#0e4e70',
                                            'background-color': '#163d47', 'opacity': '1', 'margin': '0px'},
                                     children=[
                                         ddk.Block(
@@ -38,7 +32,6 @@ dash_app.layout = html.Div([
                                                       html.Div(id='off-content', style={'display': 'none'}),
                                                       html.Button(children="TURN ON",
                                                                   style={'text-align': 'center',
-                                                                         # 'max-width': '100px',
                                                                          "background-color": "palegreen",
                                                                          "border-radius": "20px",'margin': '10px',
                                                                          'font-size': '15px'},
@@ -58,7 +51,6 @@ dash_app.layout = html.Div([
                                                   children=[
                                                       html.Button(children="REFRESH BALANCE",
                                                                   style={'text-align': 'center',
-                                                                         # 'max-width': '100px',
                                                                          "background-color": "palegreen",
                                                                          "border-radius": "20px", 'margin': '10px',
                                                                          'font-size': '15px'},
@@ -71,6 +63,7 @@ dash_app.layout = html.Div([
                                                   children=[
                                                       dcc.Link('ГЛАВНАЯ', style={'color': 'azure', 'margin': '10px'}, href='/'),
                                                       dcc.Link('REGIM 2', style={'color': 'azure', 'margin': '10px'}, href='/regim2'),
+                                                      dcc.Link('REGIM 3', style={'color': 'azure', 'margin': '10px'}, href='/regim3'),
                                                       dcc.Link('КЛЮЧИ', style={'color': 'azure', 'margin': '10px'}, href='/keys')])]),
                          html.Div(id='page-content'),
 
@@ -90,9 +83,10 @@ def display_page(pathname):
          return layouts.tab_keys()
     elif pathname == '/regim2':
          return layouts.serve_layout2()
+    elif pathname == '/regim3':
+         return layouts.serve_layout3()
     else:
         return '404'
 
 if __name__ == "__main__":
-    # app.run_server(debug=True)
     app.run(debug=False)

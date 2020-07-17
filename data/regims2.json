@@ -1,1 +1,2 @@
-{"1": {"avtomat": "off", "val1": "USDT", "val2": "PZM", "val3": "USD", "birga1": "hot", "birga2": "live", "profit": 2.0, "order": "1", "per": "99.5"}, "2": {"birga1": "alfa", "birga2": "hot", "val1": "USD", "val2": "PZM", "val3": "USDT", "birga1_com": "1", "birga2_com": "1", "profit": "2", "order": "350", "per": "2", "avtomat": "off"}}
+{"3": {"birga1": "alfa", "birga2": "hot", "val1": "USD", "val2": "PZM", "val3": "USDT", "birga1_com": "0.2", "birga2_com": "0.06", "profit": -5, "order": "455", "per": "1", "avtomat": "off"},
+  "4": {"birga1": "hot", "birga2": "alfa", "val1": "USDT", "val2": "PZM", "val3": "USD", "birga1_com": "0.06", "birga2_com": "0.2", "profit": -10, "order": "455", "per": "1", "avtomat": "off"}}
