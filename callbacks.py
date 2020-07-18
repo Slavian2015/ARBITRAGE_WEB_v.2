@@ -391,8 +391,8 @@ def creat_reg2(app: dash.Dash):
 
     @app.callback([Output('listcardreg2', 'children')],
         [Input('Create_NewRegim_btn_reg2', 'n_clicks'),
-         Input('On_Avtomat_btn_reg2', 'n_clicks'),
-         Input('Off_Avtomat_btn_reg2', 'n_clicks')],
+         Input('On_Avtomat_btn', 'n_clicks'),
+         Input('Off_Avtomat_btn', 'n_clicks')],
                   [State('newval1_btn_reg2', "value"),
                    State('newval2_btn_reg2', "value"),
                    State('newval3_btn_reg2', "value"),
@@ -461,7 +461,7 @@ def creat_reg2(app: dash.Dash):
                     return [list_group]
             else:
                 raise PreventUpdate
-        elif button_id[0] == 'On_Avtomat_btn_reg2':
+        elif button_id[0] == 'On_Avtomat_btn':
             print("AVTOMAT ON")
             # with open(main_path_data + "\\new_regims.json", "r") as file:
             file = open(main_path_data + "\\regims2.json", "r")
@@ -475,7 +475,7 @@ def creat_reg2(app: dash.Dash):
             f.close()
             list_group = [i for i in MAIN_TAB.regims2()]
             return [list_group]
-        elif button_id[0] == 'Off_Avtomat_btn_reg2':
+        elif button_id[0] == 'Off_Avtomat_btn':
             print("AVTOMAT OFF")
             # with open(main_path_data + "\\new_regims.json", "r") as file:
             file = open(main_path_data + "\\regims2.json", "r")
