@@ -16,14 +16,14 @@ a_file1 = open(main_path_data + "\\rools.json", "r")
 rools = json.load(a_file1)
 a_file1.close()
 
-input_hot_key = 'a3d8ee85-e5a7-12a9-2da662675331e86d'
-input_hot_api = '333ab864cc2c24bbce89130825cad32f'
+input_hot_key = 'xxx'
+input_hot_api = 'xxx'
 
-input_live_key = 'gT5fA5uh2f3vbkYxprGU6UYmQxD7uQA4'
-input_live_api = 'dV3dGBU6zC85WE53ezNBZSKRVTkA8hxG'
+input_live_key = 'xxx'
+input_live_api = 'xxx'
 
-input_a_key = '4pz5GovZBktfF1mxYtwcAAedsZvwJ2x2XC9JEPrpB6PrZFFWVGmqWoGhQg8cMT662ppR1GfNt6p4'
-input_a_api = '5z6uK74FTZ2EdHEKLsmmTwCWqrp8J5bt1qAHRQyvjqWYQ2n4Lj5cyqTdR4R8DJhvhyHCpyrme4G4QYwZ6kT7GGzy'
+input_a_key = 'xxx'
+input_a_api = 'xxx'
 
 
 def alfa(val1, val2, price, amount):
